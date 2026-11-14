@@ -1,0 +1,13 @@
+{
+    "id": "com_coffeesanvt_YAPS",
+    "name": "YAPS",
+    "author": "CoffeeSanVT",
+    "version": "0.1.0",
+    "github": "https://github.com/CoffeeSanVT/YAPS-StreamDeck-Integration",
+    "app-version": "1.5.0-beta.16",
+    "minimum-app-version": "1.5.0-beta.16",
+    "thumbnail": "assets/thumbnail.png",
+    "description": "Control your YAPS model, expressions, items and position presets.",
+    "short-description": "Control YAPS from StreamController.",
+    "tags": ["VTuber", "YAPS"]
+}
