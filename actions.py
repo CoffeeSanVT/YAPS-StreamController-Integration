@@ -43,6 +43,7 @@ class YapsAction(ActionCore):
 
     def activate(self, _data=None):
         name = self.get_settings().get("name", "")
+        logger.debug("YAPS key pressed: {} (selection: {!r})", self.title, name)
         if self.has_configuration and not name:
             self.show_error(2)
             return
@@ -61,6 +62,7 @@ class YapsAction(ActionCore):
             if self.get_is_present():
                 self.show_error(2)
         else:
+            logger.debug("YAPS command completed: {}", self.title)
             if self.get_is_present():
                 self.draw()
 

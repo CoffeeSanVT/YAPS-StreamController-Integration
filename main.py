@@ -62,13 +62,14 @@ class YapsPlugin(PluginBase):
         future.add_done_callback(lambda result: GLib.idle_add(callback, result))
 
     def request(self, command, callback):
-        self.submit(partial(exchange, command=command, response=True), callback)
+        self.submit(partial(exchange, command=command), callback)
 
     def toggle(self, asset, name, command, callback):
         def send(url):
             key = (url, asset)
             active = self.active.get(key, frozenset())
             enabled = name not in active
+            # Update the button only after YAPS confirms the command.
             exchange(url, f"{command}:{str(enabled).lower()}")
             if enabled and asset == Expression.asset:
                 active = frozenset({name})

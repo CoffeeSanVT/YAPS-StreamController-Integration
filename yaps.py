@@ -9,7 +9,7 @@ class YapsError(Exception):
     pass
 
 
-def exchange(url, command, *, response=False):
+def exchange(url, command):
     try:
         from websocket import create_connection
     except ImportError as error:
@@ -18,8 +18,6 @@ def exchange(url, command, *, response=False):
     socket = create_connection(url, timeout=TIMEOUT, suppress_origin=True)
     try:
         socket.send(command)
-        if not response:
-            return None
 
         deadline = monotonic() + TIMEOUT
         while (remaining := deadline - monotonic()) > 0:
